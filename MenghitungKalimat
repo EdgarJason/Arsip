@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class MenghitungKalimat {
+    public static void main(String[] args) {
+        Scanner scan  = new Scanner(System.in);
+
+        String x = scan.next();
+        String y = scan.next();
+        scan.nextLine();
+        String xx = x+" "+y;
+
+        int poinx =0;
+        int poiny =0;
+
+        while(scan.hasNextLine()){
+            String kalimat = scan.nextLine();
+            if(kalimat.isEmpty()) break;
+
+            if(kalimat.contains("me"+x) | kalimat.contains("di"+x) | kalimat.contains("ber"+x) | kalimat.contains("ke"+x) | kalimat.contains("ter"+x) | kalimat.contains("se"+x) | kalimat.contains("pe"+x) | kalimat.contains("ter"+x)) {
+            continue;
+            }
+            if(kalimat.contains("me"+y) | kalimat.contains("di"+y) | kalimat.contains("ber"+y) | kalimat.contains("ke"+y) | kalimat.contains("ter"+y) | kalimat.contains("se"+y) | kalimat.contains("pe"+y) | kalimat.contains("ter"+y)) {
+            continue;
+            }
+            if(kalimat.contains(x+"an") | kalimat.contains(x+"kan") | kalimat.contains(x+"nya") | kalimat.contains(x+"i")) {
+                continue;
+            }
+            if(kalimat.contains(y+"an") | kalimat.contains(y+"kan") | kalimat.contains(y+"nya") | kalimat.contains(y+"i")) {
+                continue;
+            }
+
+
+
+            if(kalimat.contains(xx)){
+                poiny++;
+            }
+            if(kalimat.contains(x)){
+                poinx++;
+            }
+        }
+        System.out.printf("P(%s|%s) = %d/%d",y,x,poiny,poinx);
+    }
+}
+
+
+
